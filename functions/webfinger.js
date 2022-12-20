@@ -30,7 +30,7 @@ exports.handler = async function (event) {
     console.warn('Request was missing resource parameter');
     return {
       statusCode: 400,
-    }
+    };
   }
 
   console.debug(`Attempting to lookup resource: ${resource}`);
@@ -40,7 +40,7 @@ exports.handler = async function (event) {
     console.warn('Resource did not exist');
     return {
       statusCode: 404,
-    }
+    };
   }
 
   return {
@@ -49,5 +49,5 @@ exports.handler = async function (event) {
       'content-type': 'application/jrd+json',
     },
     body: JSON.stringify(data),
-  }
+  };
 };

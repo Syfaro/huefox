@@ -10,6 +10,16 @@
   status = 200
 
 [[redirects]]
+  from = "/@*"
+  to = "/.netlify/functions/account-redirect"
+  status = 200
+
+[[redirects]]
+  from = "/users/*"
+  to = "/.netlify/functions/account-redirect"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "https://syfaro.net/:splat"
   status = 301
