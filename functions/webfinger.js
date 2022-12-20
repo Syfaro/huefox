@@ -27,13 +27,17 @@ lookups.set('acct:syfaro@huefox.com', {
 exports.handler = async function (event) {
   const resource = event['queryStringParameters']['resource'];
   if (!resource) {
+    console.warn('Request was missing resource parameter');
     return {
       statusCode: 400,
     }
   }
 
+  console.debug(`Attempting to lookup resource: ${resource}`);
+
   const data = lookups.get(resource.toLowerCase());
   if (!data) {
+    console.warn('Resource did not exist');
     return {
       statusCode: 404,
     }
