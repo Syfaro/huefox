@@ -27,7 +27,7 @@ lookups.set('acct:syfaro@huefox.com', {
 exports.handler = async function (event) {
   console.debug(event);
 
-  const resource = event['queryStringParameters']?.['resource'];
+  const resource = event['queryStringParameters']['resource'];
   console.log(`Looking up resource: ${resource}`);
   if (!resource) {
     return {
