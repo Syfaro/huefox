@@ -25,7 +25,10 @@ lookups.set('acct:syfaro@huefox.com', {
 });
 
 exports.handler = async function (event) {
+  console.debug(event);
+
   const resource = event['queryStringParameters']?.['resource'];
+  console.log(`Looking up resource: ${resource}`);
   if (!resource) {
     return {
       statusCode: 400,
@@ -39,6 +42,7 @@ exports.handler = async function (event) {
     }
   }
 
+  console.log('Found data, returning');
   return {
     statusCode: 200,
     headers: {
